@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "",
+  "buildCommand": "python3 build.py",
   "outputDirectory": "public",
   "trailingSlash": true,
   "headers": [

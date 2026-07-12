@@ -36,8 +36,7 @@ jobs:
           for chunk in 1 2 3; do
             echo "=== chunk $chunk ==="
             python gen_articles.py
-            python build.py
-            git add articles topics.json public
+            git add articles topics.json
             if git diff --cached --quiet; then
               echo "nothing new in chunk $chunk, stopping"
               break
@@ -46,6 +45,6 @@ jobs:
             git commit -m "articles: $COUNT total"
             for i in 1 2 3; do
               git push && break
-              git pull --rebase
+              git pull --rebase -X theirs || git rebase --abort
             done
           done
