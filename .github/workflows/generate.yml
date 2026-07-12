@@ -1,0 +1,51 @@
+name: Generate articles & build site
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # every 3 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install httpx
+
+      - name: Generate, build, push in 40-min chunks
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          MAX_MINUTES: "40"
+        run: |
+          git config user.name "article-bot"
+          git config user.email "bot@kitchengadgetgrove.local"
+          for chunk in 1 2 3; do
+            echo "=== chunk $chunk ==="
+            python gen_articles.py
+            python build.py
+            git add articles topics.json public
+            if git diff --cached --quiet; then
+              echo "nothing new in chunk $chunk, stopping"
+              break
+            fi
+            COUNT=$(ls articles | wc -l)
+            git commit -m "articles: $COUNT total"
+            for i in 1 2 3; do
+              git push && break
+              git pull --rebase
+            done
+          done

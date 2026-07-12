@@ -1,0 +1,98 @@
+{
+  "site": {
+    "name": "Kitchen Gadget Grove",
+    "tagline": "Smart little tools for big kitchen fun",
+    "url": "https://kitchengadgetgrove.vercel.app",
+    "associate_tag": "nicdav09-20"
+  },
+  "products": [
+    {
+      "asin": "B0D1K3DWYQ",
+      "slug": "cocktail-drink-umbrellas-150-pack",
+      "name": "150-Pack Cocktail Drink Umbrellas & Picks",
+      "short": "Mini paper parasol picks in 3 styles for tiki, luau and tropical party drinks, garnishes and appetizers.",
+      "category": "party",
+      "url": "https://www.amazon.com/dp/B0D1K3DWYQ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861892801",
+      "image": "https://m.media-amazon.com/images/I/711faRIhhnL._AC_SL1500_.jpg",
+      "full_title": "150 PCS Drink Umbrellas Cocktail Picks, Mini Paper Parasols Toothpicks Sticks | 3 Styles Cocktail Umbrellas for Hawaiian Tropical Luau Tiki Party, Drinking Decoration Garnish for Bar Beverages Fruit Food"
+    },
+    {
+      "asin": "B0DZWMDM4W",
+      "slug": "wooden-spurtle-sourdough-stirrer",
+      "name": "Wooden Spurtle & Sourdough Starter Stirrer Set (2 PCS)",
+      "short": "Skinny wooden spurtle spatula and Danish-style dough stick for mixing sourdough starter and scraping jars clean.",
+      "category": "baking",
+      "url": "https://www.amazon.com/dp/B0DZWMDM4W?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861901997",
+      "image": "https://m.media-amazon.com/images/I/71APUm1xuML._AC_SL1500_.jpg",
+      "full_title": "2 PCS Wooden Spurtle Spatula for Sourdough Starter, Wood Danish Dough Whisk | Skinny Dough Stirring Stick for Mixing, Jar Scraping, Baking, Non-Scratch, Multi-Purpose Sourdough Stirrer, Dough Blender"
+    },
+    {
+      "asin": "B0DPFPGNFQ",
+      "slug": "extendable-prank-fork",
+      "name": "Extendable Prank Fork (2-Pack, Extends to 25.4\")",
+      "short": "Stainless steel telescoping dinner fork that stretches from 8.7 to 25.4 inches — the classic food-stealing gag gift.",
+      "category": "fun",
+      "url": "https://www.amazon.com/dp/B0DPFPGNFQ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861904838",
+      "image": "https://m.media-amazon.com/images/I/51UEqR0s9lL._AC_SL1500_.jpg",
+      "full_title": "2 PCS Extendable Fork for Jokes, Expandable Forks, Extension from 8.7\" to 25.4\" Long, Stainless Steel Telescopic Retractable Dinner Fork"
+    },
+    {
+      "asin": "B0DBH4V77S",
+      "slug": "umbrella-straws-100-pack",
+      "name": "100-Pack Umbrella Straws",
+      "short": "Disposable drinking straws with built-in mini parasols for margaritas, piña coladas and pool-party drinks.",
+      "category": "party",
+      "url": "https://www.amazon.com/dp/B0DBH4V77S?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861909698",
+      "image": "https://m.media-amazon.com/images/I/71Sv0GifusL._AC_SL1500_.jpg",
+      "full_title": "100PCS Umbrella Straw, Drink Umbrellas for Hawaiian, Tropical, Luau, Tiki Party | Mini Parasol for Cocktail Decoration"
+    },
+    {
+      "asin": "B0D129D2HH",
+      "slug": "interlocking-corn-cob-holders",
+      "name": "Interlocking Corn on the Cob Holders (5 Pairs)",
+      "short": "Dishwasher-safe corn skewers with bright silicone handles that interlock for tidy storage — BBQ and party ready.",
+      "category": "bbq",
+      "url": "https://www.amazon.com/dp/B0D129D2HH?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861913221",
+      "image": "https://m.media-amazon.com/images/I/61Pr8t4FtuL._AC_SL1500_.jpg",
+      "full_title": "Girla Interlocking Corn on the Cob Holders Set - 5 Pairs (10 Pcs) Corn Cob Holders with Silicone Handles, Dishwasher Safe"
+    },
+    {
+      "asin": "B0F4QRXH5K",
+      "slug": "sourdough-whisk-set-3-in-1",
+      "name": "3-in-1 Sourdough Whisk Set (Whisk, Scraper, Lame)",
+      "short": "Danish dough whisk, dough scraper and bread scoring lame — a complete starter kit for beginner sourdough bakers.",
+      "category": "baking",
+      "url": "https://www.amazon.com/dp/B0F4QRXH5K?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861916892",
+      "image": "https://m.media-amazon.com/images/I/61J6pBMku1L._AC_SL1500_.jpg",
+      "full_title": "Sourdough Whisk Set: Danish Dough Whisk, Dough Scraper, Bread Scoring Lame | 3 in 1 Sour Dough Starter Kit, Gift for Baking Beginner"
+    },
+    {
+      "asin": "B0F4YTGRWL",
+      "slug": "onion-holder-slicing-guide",
+      "name": "Onion Holder & Slicing Guide (2 PCS)",
+      "short": "Stainless steel prongs that hold onions, tomatoes and potatoes steady for uniform, safe slicing — doubles as a meat tenderizer.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/dp/B0F4YTGRWL?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861916892",
+      "image": "https://m.media-amazon.com/images/I/71T62js8IiL._AC_SL1500_.jpg",
+      "full_title": "2 PCS Onion Holder for Slicing, Vegetable Slicer Slice Cutter Chopper Guide | Stainless Steel Kitchen Slicer Tool, Safe Anti-Cut"
+    },
+    {
+      "asin": "B0DX2G24HD",
+      "slug": "vertical-gyro-pan-skewer",
+      "name": "Vertical Gyro Pan with Skewer for Oven",
+      "short": "Stainless steel vertical skewer pan for oven-roasted gyros, al pastor tacos, shawarma and kebabs at home.",
+      "category": "cooking",
+      "url": "https://www.amazon.com/dp/B0DX2G24HD?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861924345",
+      "image": "https://m.media-amazon.com/images/I/61+usqYXlvL._AC_SL1500_.jpg",
+      "full_title": "Gyro Pan with Skewer for Oven, Stainless Steel Vertical Skewer Pan for Trompo Al Pastor Tacos, Shawarma, Kebabs"
+    }
+  ],
+  "categories": {
+    "party": "Party & Entertaining",
+    "baking": "Sourdough & Baking",
+    "bbq": "BBQ & Grilling",
+    "cooking": "Home Cooking",
+    "kitchen": "Kitchen Prep",
+    "fun": "Fun & Gifts"
+  }
+}
