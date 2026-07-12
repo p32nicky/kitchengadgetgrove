@@ -18,6 +18,24 @@ BASE = SITE["url"].rstrip("/")
 
 # Paste Google Search Console verification code here (content= value), then rebuild+deploy
 GSC_VERIFICATION = "rExqKrlIUHf3C8lAuDKtsLeQVUqIIZ_IaHXKvClNwrQ"
+INDEXNOW_KEY = "8f3a1c9e62b74d05a4e8c7f2d1b09a36"
+
+
+def extract_faq(body_html):
+    """Pull Q/A pairs out of the article's FAQ section for FAQPage schema."""
+    m = re.search(r"<h2>\s*FAQ\s*</h2>(.*)$", body_html, re.S | re.I)
+    if not m:
+        return []
+    section = m.group(1)
+    pairs = re.findall(r"<h3>(.*?)</h3>\s*(.*?)(?=<h3>|$)", section, re.S)
+    out = []
+    for q, a in pairs:
+        q = re.sub(r"<[^>]+>", "", q).strip()
+        a = re.sub(r"<[^>]+>", " ", a)
+        a = re.sub(r"\s+", " ", a).strip()
+        if q and a:
+            out.append((q, a[:1000]))
+    return out[:8]
 
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
@@ -75,12 +93,14 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
-def page(title, description, canonical, body, jsonld=None, noindex=False):
+def page(title, description, canonical, body, jsonld=None, noindex=False, image=None):
     gsc = f'<meta name="google-site-verification" content="{GSC_VERIFICATION}">' if GSC_VERIFICATION else ""
     robots = '<meta name="robots" content="noindex">' if noindex else ""
     ld = ""
     if jsonld:
         ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in jsonld)
+    og_img = f'<meta property="og:image" content="{esc(image)}"><meta name="twitter:image" content="{esc(image)}">' if image else ""
+    tw_card = "summary_large_image" if image else "summary"
     nav_cats = "".join(f'<a href="/category/{c}/">{esc(n)}</a>' for c, n in CATS.items())
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -96,7 +116,9 @@ def page(title, description, canonical, body, jsonld=None, noindex=False):
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="{esc(SITE['name'])}">
-<meta name="twitter:card" content="summary">
+{og_img}
+<meta name="twitter:card" content="{tw_card}">
+<link rel="alternate" type="application/rss+xml" title="{esc(SITE['name'])}" href="/feed.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
 {ld}
 <style>{CSS}</style>
@@ -192,12 +214,14 @@ def main():
             boxes = mentioned[:4] if mentioned else rnd.sample(PRODUCTS, 3)
             body_html += "<h2>Featured Finds</h2>" + "".join(product_box(x) for x in boxes)
 
+        art_img = p["image"] if p else PRODUCTS[0]["image"]
         jsonld = [
             {
                 "@context": "https://schema.org",
                 "@type": "Article",
                 "headline": a["title"],
                 "description": a["meta_description"],
+                "image": art_img,
                 "datePublished": a["date"],
                 "dateModified": a["date"],
                 "author": {"@type": "Organization", "name": SITE["name"]},
@@ -214,6 +238,17 @@ def main():
                 ],
             },
         ]
+        faq = extract_faq(a["html"])
+        if len(faq) >= 2:
+            jsonld.append({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": q,
+                     "acceptedAnswer": {"@type": "Answer", "text": ans}}
+                    for q, ans in faq
+                ],
+            })
         cat = p["category"] if p else None
         crumb_cat = f' &rsaquo; <a href="/category/{cat}/">{esc(CATS[cat])}</a>' if cat else ""
         body = f"""<div class="crumbs"><a href="/">Home</a>{crumb_cat} &rsaquo; {esc(a['title'])}</div>
@@ -221,7 +256,7 @@ def main():
 <p class="sub">Published {a['date']} &middot; {SITE['name']}</p>
 {DISCLOSURE}
 {body_html}</article>{rel_html}"""
-        write(f"articles/{a['slug']}/index.html", page(a["title"], a["meta_description"], canonical, body, jsonld))
+        write(f"articles/{a['slug']}/index.html", page(a["title"], a["meta_description"], canonical, body, jsonld, image=art_img))
         urls.append((f"/articles/{a['slug']}/", a["date"]))
 
     # ---------- product pages ----------
@@ -244,7 +279,7 @@ def main():
 {product_box(p)}
 <p>{esc(p['short'])}</p>
 <h2>Guides &amp; Ideas for This Gadget</h2>{rel}"""
-        write(f"products/{p['slug']}/index.html", page(title, p["short"], canonical, body, jsonld))
+        write(f"products/{p['slug']}/index.html", page(title, p["short"], canonical, body, jsonld, image=p["image"]))
         urls.append((f"/products/{p['slug']}/", date.today().isoformat()))
 
     # ---------- category pages ----------
@@ -304,6 +339,23 @@ def main():
 <p>As an Amazon Associate we earn from qualifying purchases. When you click a link to Amazon on this site and make a purchase, we may receive a small commission at no additional cost to you. This helps keep the site running. We only feature products we genuinely think are useful or fun.</p>
 <p>Product prices and availability are accurate as of the date/time indicated and are subject to change.</p>"""))
     urls.append(("/affiliate-disclosure/", date.today().isoformat()))
+
+    # ---------- RSS feed ----------
+    items = []
+    for a in arts_sorted[:50]:
+        link = f"{BASE}/articles/{a['slug']}/"
+        items.append(
+            f"<item><title>{esc(a['title'])}</title><link>{link}</link>"
+            f"<guid>{link}</guid><pubDate>{a['date']}</pubDate>"
+            f"<description>{esc(a['meta_description'])}</description></item>")
+    write("feed.xml",
+        '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>'
+        f"<title>{esc(SITE['name'])}</title><link>{BASE}/</link>"
+        f"<description>{esc(SITE['tagline'])}</description>"
+        + "".join(items) + "</channel></rss>")
+
+    # ---------- IndexNow key ----------
+    write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
 
     # ---------- sitemap, robots, 404 ----------
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
