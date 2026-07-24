@@ -85,6 +85,182 @@
       "url": "https://www.amazon.com/dp/B0DX2G24HD?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.100CNI45MCRU6&linkCode=tr1&tag=nicdav09-20&linkId=amzn1.campaign.100CNI45MCRU6_1783861924345",
       "image": "https://m.media-amazon.com/images/I/61+usqYXlvL._AC_SL1500_.jpg",
       "full_title": "Gyro Pan with Skewer for Oven, Stainless Steel Vertical Skewer Pan for Trompo Al Pastor Tacos, Shawarma, Kebabs"
+    },
+    {
+      "asin": "kw-garlic-press",
+      "slug": "garlic-press",
+      "name": "Garlic Press",
+      "short": "Squeeze fresh garlic in seconds — sturdy stainless and silicone garlic presses that mince, crush, and clean up easy.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/s?k=garlic+press&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🧄",
+      "full_title": "Garlic Press: Squeeze fresh garlic in seconds — sturdy stainless and silicone garlic presses that mince, crush, and clean up easy."
+    },
+    {
+      "asin": "kw-avocado-slicer",
+      "slug": "avocado-slicer",
+      "name": "Avocado Slicer Tool",
+      "short": "3-in-1 avocado tools that split, pit, and slice safely — no more knife-to-the-hand avocado accidents.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/s?k=avocado+slicer&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🥑",
+      "full_title": "Avocado Slicer Tool: 3-in-1 avocado tools that split, pit, and slice safely — no more knife-to-the-hand avocado accidents."
+    },
+    {
+      "asin": "kw-mandoline-slicer",
+      "slug": "mandoline-slicer",
+      "name": "Mandoline Slicer",
+      "short": "Restaurant-thin, even slices of veggies and fruit fast — adjustable mandolines with hand guards.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/s?k=mandoline+slicer&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🔪",
+      "full_title": "Mandoline Slicer: Restaurant-thin, even slices of veggies and fruit fast — adjustable mandolines with hand guards."
+    },
+    {
+      "asin": "kw-herb-scissors",
+      "slug": "herb-scissors",
+      "name": "Herb Scissors",
+      "short": "Five-blade herb shears that mince cilantro, chives, and basil in one snip — with a cleaning comb.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/s?k=herb+scissors&tag=nicdav09-20",
+      "image": "",
+      "emoji": "✂️",
+      "full_title": "Herb Scissors: Five-blade herb shears that mince cilantro, chives, and basil in one snip — with a cleaning comb."
+    },
+    {
+      "asin": "kw-meat-thermometer",
+      "slug": "meat-thermometer",
+      "name": "Instant-Read Meat Thermometer",
+      "short": "Nail the perfect temp every time — fast digital thermometers for grilling, roasting, and frying.",
+      "category": "bbq",
+      "url": "https://www.amazon.com/s?k=instant+read+meat+thermometer&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🌡️",
+      "full_title": "Instant-Read Meat Thermometer: Nail the perfect temp every time — fast digital thermometers for grilling, roasting, and frying."
+    },
+    {
+      "asin": "kw-silicone-baking-mats",
+      "slug": "silicone-baking-mats",
+      "name": "Silicone Baking Mats",
+      "short": "Non-stick, reusable mats that replace parchment — even baking and zero-scrub cleanup.",
+      "category": "baking",
+      "url": "https://www.amazon.com/s?k=silicone+baking+mat&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🧁",
+      "full_title": "Silicone Baking Mats: Non-stick, reusable mats that replace parchment — even baking and zero-scrub cleanup."
+    },
+    {
+      "asin": "kw-cookie-scoop",
+      "slug": "cookie-scoop",
+      "name": "Cookie Dough Scoop",
+      "short": "Perfectly uniform cookies, meatballs, and muffins — spring-release scoops in every size.",
+      "category": "baking",
+      "url": "https://www.amazon.com/s?k=cookie+scoop&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🍪",
+      "full_title": "Cookie Dough Scoop: Perfectly uniform cookies, meatballs, and muffins — spring-release scoops in every size."
+    },
+    {
+      "asin": "kw-spice-grinder",
+      "slug": "spice-grinder",
+      "name": "Spice & Pepper Grinder",
+      "short": "Fresh-cracked flavor on demand — adjustable-coarseness grinders for pepper, salt, and whole spices.",
+      "category": "cooking",
+      "url": "https://www.amazon.com/s?k=spice+grinder&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🧂",
+      "full_title": "Spice & Pepper Grinder: Fresh-cracked flavor on demand — adjustable-coarseness grinders for pepper, salt, and whole spices."
+    },
+    {
+      "asin": "kw-spiralizer",
+      "slug": "spiralizer",
+      "name": "Vegetable Spiralizer",
+      "short": "Turn zucchini and carrots into noodles — handheld and countertop spiralizers for low-carb meals.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/s?k=vegetable+spiralizer&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🥒",
+      "full_title": "Vegetable Spiralizer: Turn zucchini and carrots into noodles — handheld and countertop spiralizers for low-carb meals."
+    },
+    {
+      "asin": "kw-milk-frother",
+      "slug": "milk-frother",
+      "name": "Milk Frother",
+      "short": "Cafe-style foam at home — handheld and electric frothers for lattes, cappuccinos, and matcha.",
+      "category": "cooking",
+      "url": "https://www.amazon.com/s?k=milk+frother&tag=nicdav09-20",
+      "image": "",
+      "emoji": "☕",
+      "full_title": "Milk Frother: Cafe-style foam at home — handheld and electric frothers for lattes, cappuccinos, and matcha."
+    },
+    {
+      "asin": "kw-pizza-cutter",
+      "slug": "pizza-cutter",
+      "name": "Pizza Cutter Wheel",
+      "short": "Clean slices with zero drag — sharp stainless pizza wheels and rockers with finger guards.",
+      "category": "cooking",
+      "url": "https://www.amazon.com/s?k=pizza+cutter+wheel&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🍕",
+      "full_title": "Pizza Cutter Wheel: Clean slices with zero drag — sharp stainless pizza wheels and rockers with finger guards."
+    },
+    {
+      "asin": "kw-jar-opener",
+      "slug": "jar-opener",
+      "name": "Jar & Bottle Opener",
+      "short": "Pop stubborn lids with ease — grippy multi-size openers made for arthritis-friendly kitchens.",
+      "category": "kitchen",
+      "url": "https://www.amazon.com/s?k=jar+opener&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🫙",
+      "full_title": "Jar & Bottle Opener: Pop stubborn lids with ease — grippy multi-size openers made for arthritis-friendly kitchens."
+    },
+    {
+      "asin": "kw-taco-holder",
+      "slug": "taco-holder",
+      "name": "Taco Holder Stand",
+      "short": "Stand tacos upright for easy filling and mess-free eating — dishwasher-safe holder racks.",
+      "category": "party",
+      "url": "https://www.amazon.com/s?k=taco+holder+stand&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🌮",
+      "full_title": "Taco Holder Stand: Stand tacos upright for easy filling and mess-free eating — dishwasher-safe holder racks."
+    },
+    {
+      "asin": "kw-cocktail-shaker",
+      "slug": "cocktail-shaker",
+      "name": "Cocktail Shaker Set",
+      "short": "Shake bar-quality drinks at home — leak-proof shaker sets with jiggers and strainers.",
+      "category": "party",
+      "url": "https://www.amazon.com/s?k=cocktail+shaker+set&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🍸",
+      "full_title": "Cocktail Shaker Set: Shake bar-quality drinks at home — leak-proof shaker sets with jiggers and strainers."
+    },
+    {
+      "asin": "kw-ice-cream-scoop",
+      "slug": "ice-cream-scoop",
+      "name": "Ice Cream Scoop",
+      "short": "Effortless round scoops from rock-hard ice cream — heat-conductive and spring-lever scoops.",
+      "category": "fun",
+      "url": "https://www.amazon.com/s?k=ice+cream+scoop&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🍨",
+      "full_title": "Ice Cream Scoop: Effortless round scoops from rock-hard ice cream — heat-conductive and spring-lever scoops."
+    },
+    {
+      "asin": "kw-grill-mat",
+      "slug": "grill-mat",
+      "name": "BBQ Grill Mats",
+      "short": "Grill delicate foods without flare-ups or sticking — reusable non-stick mats for any grill.",
+      "category": "bbq",
+      "url": "https://www.amazon.com/s?k=bbq+grill+mat&tag=nicdav09-20",
+      "image": "",
+      "emoji": "🔥",
+      "full_title": "BBQ Grill Mats: Grill delicate foods without flare-ups or sticking — reusable non-stick mats for any grill."
     }
   ],
   "categories": {

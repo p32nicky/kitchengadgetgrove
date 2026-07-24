@@ -41,8 +41,8 @@ CATALOG = json.loads((ROOT / "products.json").read_text(encoding="utf-8"))
 PRODUCTS = CATALOG["products"]
 CATS = CATALOG["categories"]
 
-ARTICLES_PER_PRODUCT = 500
-N_ROUNDUPS = 1000
+ARTICLES_PER_PRODUCT = 180
+N_ROUNDUPS = 700
 TOPIC_BATCH = 30
 MAX_MINUTES = float(os.environ.get("MAX_MINUTES", "0"))  # 0 = unlimited
 START_TIME = time.time()

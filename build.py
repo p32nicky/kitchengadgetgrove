@@ -72,6 +72,9 @@ a{color:var(--accent2)}
 .btn:hover{background:#c74d30}
 .pcard{text-align:center}
 .pcard img{width:100%;height:190px;object-fit:contain;margin-bottom:12px;background:#fff}
+.pemoji{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff3ea,#ffe6d6);border-radius:10px;line-height:1}
+.pemoji-box{width:150px;height:150px;font-size:4rem;flex-shrink:0}
+.pemoji-card{width:100%;height:190px;font-size:5rem;margin-bottom:12px}
 .hero{background:linear-gradient(135deg,#2a7f62 0%,#1f5d48 100%);color:#fff;border-radius:14px;padding:44px 34px;margin-bottom:34px}
 .hero h1{color:#fff;font-size:2.2rem}
 .hero p{color:#d8ece4;max-width:640px;font-size:1.05rem}
@@ -133,10 +136,25 @@ def page(title, description, canonical, body, jsonld=None, noindex=False, image=
 </body></html>"""
 
 
+PEMOJI = {"party": "\U0001F389", "baking": "\U0001F35E", "bbq": "\U0001F356",
+          "cooking": "\U0001F373", "kitchen": "\U0001F52A", "fun": "\U0001F381"}
+
+
+def prod_img(p, box=False):
+    """Real product photo if present, else a styled emoji tile (no fabricated image URLs)."""
+    if p.get("image"):
+        if box:
+            return f'<img src="{esc(p["image"])}" alt="{esc(p["name"])}" loading="lazy" width="150" height="150">'
+        return f'<img src="{esc(p["image"])}" alt="{esc(p["name"])}" loading="lazy">'
+    em = p.get("emoji") or PEMOJI.get(p.get("category"), "\U0001F37D")
+    cls = "pemoji pemoji-box" if box else "pemoji pemoji-card"
+    return f'<div class="{cls}" role="img" aria-label="{esc(p["name"])}">{em}</div>'
+
+
 def product_box(p, heading=None):
     h = f'<div class="tag">{esc(heading)}</div>' if heading else ""
     return f"""<div class="pbox">{h}
-<img src="{esc(p['image'])}" alt="{esc(p['name'])}" loading="lazy" width="150" height="150">
+{prod_img(p, box=True)}
 <div class="pb-body">
 <div class="pb-name">{esc(p['name'])}</div>
 <div class="pb-desc">{esc(p['short'])}</div>
@@ -290,7 +308,7 @@ def main():
         if c == "party":
             carts += roundups
         pcards = "".join(
-            f"""<div class="card pcard"><img src="{esc(p['image'])}" alt="{esc(p['name'])}" loading="lazy"><a class="t" href="/products/{p['slug']}/">{esc(p['name'])}</a><p>{esc(p['short'][:100])}&hellip;</p></div>"""
+            f"""<div class="card pcard">{prod_img(p)}<a class="t" href="/products/{p['slug']}/">{esc(p['name'])}</a><p>{esc(p['short'][:100])}&hellip;</p></div>"""
             for p in cprods)
         body = f"""<div class="crumbs"><a href="/">Home</a> &rsaquo; {esc(cname)}</div>
 <h1>{esc(cname)}</h1>
@@ -310,7 +328,7 @@ def main():
     # ---------- home ----------
     latest = arts_sorted[:12]
     pcards = "".join(
-        f"""<div class="card pcard"><img src="{esc(p['image'])}" alt="{esc(p['name'])}" loading="lazy"><a class="t" href="/products/{p['slug']}/">{esc(p['name'])}</a><p>{esc(p['short'][:90])}&hellip;</p></div>"""
+        f"""<div class="card pcard">{prod_img(p)}<a class="t" href="/products/{p['slug']}/">{esc(p['name'])}</a><p>{esc(p['short'][:90])}&hellip;</p></div>"""
         for p in PRODUCTS)
     jsonld = [{
         "@context": "https://schema.org",
