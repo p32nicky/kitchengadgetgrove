@@ -192,6 +192,15 @@ def main():
             arts.append(a)
     print(f"{len(arts)} articles loaded")
 
+    # Content pruning for scaled-content-abuse recovery: only pages that earned
+    # Google impressions stay indexed; the rest are noindex,follow + kept out of
+    # the sitemap so the crawlable footprint is the pages with real relevance.
+    # Slugs in keep_slugs.txt are indexed; everything else is pruned.
+    _keep_file = ROOT / "keep_slugs.txt"
+    KEEP = set(_keep_file.read_text(encoding="utf-8").split()) if _keep_file.exists() else None
+    if KEEP is not None:
+        print(f"keep-list: {len(KEEP)} indexed, {len(arts)-sum(1 for a in arts if a['slug'] in KEEP)} pruned (noindex)")
+
     rnd = random.Random(42)
     # stable pseudo publish dates spread over last 60 days (freshness spread for GSC)
     start = date.today() - timedelta(days=60)
@@ -274,8 +283,10 @@ def main():
 <p class="sub">Published {a['date']} &middot; {SITE['name']}</p>
 {DISCLOSURE}
 {body_html}</article>{rel_html}"""
-        write(f"articles/{a['slug']}/index.html", page(a["title"], a["meta_description"], canonical, body, jsonld, image=art_img))
-        urls.append((f"/articles/{a['slug']}/", a["date"]))
+        pruned = KEEP is not None and a["slug"] not in KEEP
+        write(f"articles/{a['slug']}/index.html", page(a["title"], a["meta_description"], canonical, body, jsonld, image=art_img, noindex=pruned))
+        if not pruned:
+            urls.append((f"/articles/{a['slug']}/", a["date"]))
 
     # ---------- product pages ----------
     for p in PRODUCTS:
